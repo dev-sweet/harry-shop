@@ -11,6 +11,9 @@ import Contacts from "../components/Contacts/Contact";
 import Dashboard from "../components/Dhasboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import DashboardLayout from "../components/Layouts/DashboardLayout";
+import DashboardAllProducts from "../components/Dhasboard/DashboardAllProducts";
+import EditProduct from "../components/Dhasboard/EditProduct";
+import AddProduct from "../components/Dhasboard/AddProduct";
 
 export const router = createBrowserRouter([
   {
@@ -66,9 +69,27 @@ export const router = createBrowserRouter([
         path: "all-products",
         element: (
           <PrivateRoute>
-            <AllProducts />
+            <DashboardAllProducts />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "add-product",
+        element: (
+          <PrivateRoute>
+            <AddProduct />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "all-products/edit/:id",
+        element: (
+          <PrivateRoute>
+            <EditProduct />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/products/${params.id}`),
       },
     ],
   },

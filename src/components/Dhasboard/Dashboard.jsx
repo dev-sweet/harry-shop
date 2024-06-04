@@ -11,7 +11,7 @@ const Dashboard = () => {
   };
   return (
     <div>
-      <h2 className="text-4xl text-center">Dashboard</h2>
+      <h2 className="text-4xl text-center">Profile</h2>
       <div className="max-w-md mx-auto my-10 bg-white shadow-lg rounded-lg overflow-hidden">
         <div className="flex items-center space-x-4 p-6">
           <img

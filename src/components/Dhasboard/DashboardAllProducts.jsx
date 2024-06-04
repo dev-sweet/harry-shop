@@ -1,8 +1,14 @@
-import { useLoaderData } from "react-router-dom";
 import DashboardProduct from "./DashboardProduct";
+import { useEffect, useState } from "react";
 
 const DashboardAllProducts = () => {
-  const { products } = useLoaderData();
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/products")
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
+  }, [products]);
   return (
     <div className="text-center">
       <h2 className="text-5xl my-5 text-center font-bold">All Products</h2>
