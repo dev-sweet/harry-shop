@@ -5,45 +5,31 @@ import "react-toastify/dist/ReactToastify.css";
 
 const EditProduct = () => {
   const product = useLoaderData();
-  const {
-    name,
-    brand,
-    price,
-    img,
-    details,
-    discount,
-    watchType,
-    shortDetails,
-  } = product;
   const [formData, setFormData] = useState({
-    name,
-    brand,
-    price,
-    img,
-    details,
-    discount,
-    watchType,
-    shortDetails,
+    name: product.name,
+    price: product.price,
+    img: product.img,
+    details: product.details,
+    discount: product.discount,
+    inStock: product.inStock,
+    category: product.category,
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const userConfirmed = confirm("Do you want to update this product?");
-    if (userConfirmed) {
-      fetch(`http://localhost:3000/products/update/${product._id}`, {
-        method: "PATCH",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify(formData),
+    console.log(formData);
+    fetch(`http://localhost:3000/products/update/${product._id}`, {
+      method: "PATCH",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          toast("Your product updated successfully!");
+        }
       })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data) {
-            toast("Your product updated successfully!");
-          }
-        })
-        .catch((err) => console.log(err));
-    }
+      .catch((err) => console.log(err));
   };
 
   const handleChange = (e) => {
@@ -76,15 +62,6 @@ const EditProduct = () => {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700">Short Details:</label>
-          <textarea
-            name="shortDetails"
-            value={formData.shortDetails}
-            onChange={handleChange}
-            className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
-          />
-        </div>
-        <div className="mb-4">
           <label className="block text-gray-700">Price:</label>
           <input
             type="text"
@@ -105,21 +82,21 @@ const EditProduct = () => {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700">Brand:</label>
+          <label className="block text-gray-700">In Stock: </label>
           <input
             type="text"
-            name="brand"
-            value={formData.brand}
+            name="inStock"
+            value={formData.inStock}
             onChange={handleChange}
             className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700">Watch Type:</label>
+          <label className="block text-gray-700">Category: </label>
           <input
             type="text"
-            name="watchType"
-            value={formData.watchType}
+            name="category"
+            value={formData.category}
             onChange={handleChange}
             className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
           />

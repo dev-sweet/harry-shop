@@ -1,3 +1,4 @@
+import { FaLongArrowAltRight } from "react-icons/fa";
 import bannerImg from "../../../assets/slider-1.webp";
 // import { FaLongArrowAltRight } from "react-icons/fa";
 
@@ -13,9 +14,9 @@ const Banner = () => {
               <h3 className="md:text-7xl text-4xl mt-3 font-bold">
                 Find Best <br /> Matley Sound.
               </h3>
-              <button className="mt-5 btn px-16 py-0 btn-neutral btn-outline">
+              <button className="mt-5 btn px-16 py-0 btn-neutral btn-outline flex items-center justify-center">
                 Shop Now
-                {/* <FaLongArrowAltRight /> */}
+                <FaLongArrowAltRight />
               </button>
             </div>
           </div>

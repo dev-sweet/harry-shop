@@ -1,16 +1,7 @@
 import { Link } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
-const SingleProduct = () => {
-  const product = {
-    name: "ViewSonic Professional Monitor",
-    category: "Computers Monitor & Laptop",
-    price: 281.06,
-    img: "https://i.ibb.co/ZT9XtYT/watch1.jpg",
-    tags: ["ViewSonic", "Monitor", "Computer"],
-    discount: 6,
-    inStock: 22,
-  };
+const SingleProduct = ({ product }) => {
   const { name, price, img, _id } = product;
   return (
     <div className="card w-full shadow-xl border-md border-red-100">

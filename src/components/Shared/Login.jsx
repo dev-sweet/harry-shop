@@ -3,11 +3,12 @@ import google from "../../assets/Google__G__logo.svg.png";
 import facebook from "../../assets/facebook.png";
 import { ToastContainer, toast } from "react-toastify";
 import { useContext, useState } from "react";
-import { AuthContext } from "../AuthProvider/AuthProvider";
 import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+
 const Login = () => {
   const [user, setUser] = useState({ email: "", password: "" });
-  const { loginWithGooglePopUp, loginWithEmailAndPass } =
+  const { loginWithGooglePopUp, loginWithEmailAndPass, userInfo } =
     useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -23,37 +24,20 @@ const Login = () => {
     e.preventDefault();
     loginWithEmailAndPass(user.email, user.password)
       .then(() => {
-        toast("Login Success!");
-        navigate("/");
+        if (userInfo?.email) {
+          toast("Login Success!");
+          navigate("/");
+        }
       })
       .catch((err) => console.log(err));
   };
 
   //   login with google popup
   const handleLoginWithGoogle = () => {
-    loginWithGooglePopUp().then((data) => {
-      const loggedUser = data.user;
-      if (loggedUser?.email) {
-        const user = {
-          name: loggedUser.displayName,
-          email: loggedUser.email,
-          img: loggedUser.photoURL,
-        };
-
-        // push user to userCollection
-        fetch("http://localhost:3000/users", {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json",
-          },
-          body: JSON.stringify(user),
-        })
-          .then((res) => res.json())
-          .then(() => {
-            toast("Login Success!");
-            navigate("/");
-          });
-        console.log(user);
+    loginWithGooglePopUp().then(() => {
+      if (userInfo?.email) {
+        toast("Login Success!");
+        navigate("/");
       }
     });
   };
@@ -110,7 +94,10 @@ const Login = () => {
           </label>
         </div>
 
-        <button type="submit" className="btn btn-success w-full mt-3">
+        <button
+          type="submit"
+          className="btn w-full btn bg-[#f50963]  text-gray-100 hover:bg-[#ca004d] hover;text-gray-50 btn-outline border-0 px-10"
+        >
           Login
         </button>
       </form>
@@ -124,10 +111,9 @@ const Login = () => {
           <img className="w-6" src={facebook} alt="" />
           Login with Facebook
         </button>
-        {/* <ToastContainer /> */}
         <p className="mt-2 text-center">
           Don not have an account?{" "}
-          <Link to="/register" className="text-blue-400">
+          <Link to="/register" className="text-[#f50963] hover:text-[#ca004d]">
             Register Here
           </Link>
         </p>

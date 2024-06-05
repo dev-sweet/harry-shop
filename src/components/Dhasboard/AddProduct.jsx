@@ -5,13 +5,12 @@ import "react-toastify/dist/ReactToastify.css";
 const AddProduct = () => {
   const [product, setProduct] = useState({
     name: "",
-    brand: "",
-    shortDetails: "",
-    watchType: "",
-    img: "",
     price: "",
-    discount: "",
+    img: "",
     details: "",
+    discount: "",
+    inStock: "",
+    category: "",
   });
 
   const handleSubmit = (e) => {
@@ -37,6 +36,7 @@ const AddProduct = () => {
               price: "",
               discount: "",
               details: "",
+              category: "",
             });
           }
         })
@@ -76,15 +76,6 @@ const AddProduct = () => {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700">Short Details:</label>
-          <textarea
-            name="shortDetails"
-            value={product.shortDetails}
-            onChange={handleChange}
-            className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
-          />
-        </div>
-        <div className="mb-4">
           <label className="block text-gray-700">Price:</label>
           <input
             type="text"
@@ -105,21 +96,21 @@ const AddProduct = () => {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700">Brand:</label>
+          <label className="block text-gray-700">In Stock: </label>
           <input
             type="text"
-            name="brand"
-            value={product.brand}
+            name="inStock"
+            value={product.inStock}
             onChange={handleChange}
             className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700">Watch Type:</label>
+          <label className="block text-gray-700">Category: </label>
           <input
             type="text"
-            name="watchType"
-            value={product.watchType}
+            name="category"
+            value={product.category}
             onChange={handleChange}
             className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
           />
@@ -137,7 +128,7 @@ const AddProduct = () => {
           type="submit"
           className="w-full px-4 py-2 mt-4 font-semibold text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:bg-blue-700"
         >
-          ADD
+          Save
         </button>
         <ToastContainer />
       </form>

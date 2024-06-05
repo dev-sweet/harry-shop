@@ -1,7 +1,7 @@
-import { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { useContext } from "react";
 
 const DashboardLayout = () => {
   const { logOut } = useContext(AuthContext);

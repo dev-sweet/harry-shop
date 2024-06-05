@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo-black.de19b08e.svg";
+import { ToastContainer, toast } from "react-toastify";
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import { ToastContainer, toast } from "react-toastify";
 const Navbar = () => {
   const { userInfo, logOut } = useContext(AuthContext);
-  console.log(userInfo);
   const lists = (
     <>
       <li>
@@ -99,10 +98,10 @@ const Navbar = () => {
                 className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <a className="justify-between">
+                  <Link className="justify-between" to={"/dashboard"}>
                     Profile
                     <span className="badge">New</span>
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a>Settings</a>

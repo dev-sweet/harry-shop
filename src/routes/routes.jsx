@@ -14,6 +14,7 @@ import DashboardLayout from "../components/Layouts/DashboardLayout";
 import DashboardAllProducts from "../components/Dhasboard/DashboardAllProducts";
 import EditProduct from "../components/Dhasboard/EditProduct";
 import AddProduct from "../components/Dhasboard/AddProduct";
+import EditProfile from "../components/Dhasboard/EditProfile";
 
 export const router = createBrowserRouter([
   {
@@ -46,7 +47,7 @@ export const router = createBrowserRouter([
         element: <Contacts />,
       },
       {
-        path: "/products/details/:id",
+        path: "/products/:id",
         element: <ProductDetails />,
         loader: ({ params }) =>
           fetch(`http://localhost:3000/products/${params.id}`),
@@ -62,6 +63,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <Dashboard />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "profile/edit",
+        element: (
+          <PrivateRoute>
+            <EditProfile />
           </PrivateRoute>
         ),
       },
