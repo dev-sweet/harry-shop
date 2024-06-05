@@ -1,5 +1,6 @@
 import Banner from "../Banner/Banner";
 import Category from "../Category/Category";
+import Iphone from "../Iphone/Iphone";
 import Products from "../Products/Products";
 
 const Home = () => {
@@ -8,6 +9,7 @@ const Home = () => {
       <Banner />
       <Category />
       <Products />
+      <Iphone />
     </div>
   );
 };

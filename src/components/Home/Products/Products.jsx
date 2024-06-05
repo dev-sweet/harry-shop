@@ -15,7 +15,7 @@ const Products = () => {
         <h1 className="text-3xl font-bold">Popular Products</h1>
         <div className="py-10 grid md:grid-cols-4 gap-5 overflow-hidden">
           {products.map((product) => (
-            <SingleProduct key={product.img} product={product} />
+            <SingleProduct key={product._id} product={product} />
           ))}
         </div>
         <div className="flex justify-end pt-10">

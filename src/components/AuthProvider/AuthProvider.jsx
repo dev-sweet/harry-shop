@@ -35,6 +35,7 @@ const AuthProvider = ({ children }) => {
   const logOut = () => {
     return signOut(auth);
   };
+
   onAuthStateChanged(auth, (user) => {
     setUserInfo(user);
     setIsLoading(false);
