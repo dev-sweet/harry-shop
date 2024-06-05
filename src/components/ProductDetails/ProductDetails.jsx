@@ -8,14 +8,14 @@ const ProductDetails = () => {
   const { name, inStock, price, img, details, discount, category } = product;
   const { id } = useParams();
   useEffect(() => {
-    fetch(`http://localhost:3000/products/${id}`)
+    fetch(`https://harry-shop-server.onrender.com/products/${id}`)
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, []);
   return (
-    <div className="h-screen section-container mt-20">
+    <div className="h-screen section-container flex flex-col items-center">
       <h1 className="text-center text-4xl font-semibold py-5">Details</h1>
-      <div className="mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+      <div className="mx-auto bg-white shadow-md overflow-hidden">
         <div className="md:grid grid-cols-12">
           <div className="col-span-6">
             <img className="w-full object-cover" src={img} alt={name} />

@@ -13,7 +13,7 @@ const Dashboard = () => {
     });
   };
   useEffect(() => {
-    fetch(`http://localhost:3000/users/${userInfo?.email}`)
+    fetch(`https://harry-shop-server.onrender.com/users/${userInfo?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setUser(data);

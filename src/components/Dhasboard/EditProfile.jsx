@@ -23,7 +23,7 @@ const EditProfile = () => {
   // handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:3000/users/${user._id}`, {
+    fetch(`https://harry-shop-server.onrender.com/users/${user._id}`, {
       method: "PATCH",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(formData),
@@ -36,7 +36,7 @@ const EditProfile = () => {
       });
   };
   useEffect(() => {
-    fetch(`http://localhost:3000/users/${userInfo?.email}`)
+    fetch(`https://harry-shop-server.onrender.com/users/${userInfo?.email}`)
       .then((res) => res.json())
       .then((data) => {
         const currentUser = {
@@ -93,7 +93,7 @@ const EditProfile = () => {
 
         <button
           type="submit"
-          className="w-full py-2 px-4 bg-indigo-600 text-white font-semibold rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          className="w-full py-2 px-4 bg-[#f50963]  text-gray-100 hover:bg-[#ca004d] hover:text-gray-50 font-semibold rounded-md"
         >
           Save Changes
         </button>

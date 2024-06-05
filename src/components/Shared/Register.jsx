@@ -37,7 +37,7 @@ const Register = () => {
       setError("");
       signUpWithEmailAndPassword(user.email, user.password)
         .then(() => {
-          fetch("http://localhost:3000/users", {
+          fetch("https://harry-shop-server.onrender.com/users", {
             method: "POST",
             headers: {
               "Content-type": "application/json",
@@ -45,7 +45,8 @@ const Register = () => {
             body: JSON.stringify(user),
           })
             .then((res) => res.json())
-            .then(() => {
+            .then((data) => {
+              console.log(data);
               toast("Successfully created account!");
               navigate("/");
             });
@@ -65,7 +66,7 @@ const Register = () => {
       };
       if (loggedUser?.email) {
         //
-        fetch("http://localhost:3000/users", {
+        fetch("https://harry-shop-server.onrender.com/users", {
           method: "POST",
           headers: {
             "Content-type": "application/json",

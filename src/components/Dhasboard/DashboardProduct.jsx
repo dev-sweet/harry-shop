@@ -7,7 +7,7 @@ const DashboardProduct = ({ product }) => {
   const handleDelete = (id) => {
     const userConfirmed = confirm("Do you want to delete this product?");
     if (userConfirmed) {
-      fetch(`http://localhost:3000/products/delete/${id}`, {
+      fetch(`https://harry-shop-server.onrender.com/products/delete/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

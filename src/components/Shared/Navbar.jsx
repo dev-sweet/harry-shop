@@ -32,8 +32,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="section-container fixed top-0 left-0 right-0">
-      <div className="navbar bg-base-100 m-0 p-0">
+    <div className="section-container bg-base-100  fixed top-0 left-0 right-0 z-1000 shadow-sm">
+      <div className="navbar m-0 p-0">
         <div className="flex-1">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

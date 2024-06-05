@@ -18,11 +18,14 @@ const EditProduct = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
-    fetch(`http://localhost:3000/products/update/${product._id}`, {
-      method: "PATCH",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify(formData),
-    })
+    fetch(
+      `https://harry-shop-server.onrender.com/products/update/${product._id}`,
+      {
+        method: "PATCH",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify(formData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data) {

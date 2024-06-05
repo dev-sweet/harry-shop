@@ -18,7 +18,7 @@ const AddProduct = () => {
     const isConfirmed = confirm("Do you want to add this product?");
 
     if (isConfirmed) {
-      fetch(`http://localhost:3000/products`, {
+      fetch(`https://harry-shop-server.onrender.com/products`, {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(product),

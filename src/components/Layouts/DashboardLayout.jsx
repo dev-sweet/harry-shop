@@ -18,7 +18,7 @@ const DashboardLayout = () => {
         <h1 className="text-3xl font-bold m-5 text-center">Dashboard</h1>
         <ul className="menu p-4 min-h-full text-base-content">
           <li>
-            <Link className="mx-w-full" to="/dashboard">
+            <Link className="mx-w-full text-center" to="/dashboard">
               Dashboard
             </Link>
           </li>
