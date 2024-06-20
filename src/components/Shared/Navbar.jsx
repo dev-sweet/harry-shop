@@ -65,8 +65,8 @@ const Navbar = ({ handleSearch, handleBlur, searchText }) => {
                 {lists}
               </ul>
             </div>
-            <a className="btn bg-gray-10">
-              <img src={logo} alt="" />
+            <a className="bg-gray-10">
+              <img src={logo} className="w-3/4" alt="" />
             </a>
             <div className="hidden lg:flex">
               <ul className="menu menu-horizontal px-1">{lists}</ul>

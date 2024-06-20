@@ -13,7 +13,7 @@ const Products = () => {
     <div className="section-container z-0">
       <div className="py-8">
         <h1 className="text-3xl font-bold">Popular Products</h1>
-        <div className="py-10 grid md:grid-cols-4 gap-5 overflow-hidden">
+        <div className="py-10 grid md:grid-cols-4 gap-8 overflow-hidden">
           {products.map((product) => (
             <SingleProduct key={product._id} product={product} />
           ))}

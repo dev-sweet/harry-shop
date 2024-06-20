@@ -12,8 +12,13 @@ const MainLayout = () => {
 
   const handleSearch = (e) => {
     const search = e.target.value;
+    if (!search) {
+      setSearchText(search);
+      setFilteredProducts([]);
+      return 0;
+    }
     setSearchText(search);
-    const result = products.filter((product) => product.name.includes(search));
+    const result = products.filter((product) => product?.name.includes(search));
     setFilteredProducts(result);
   };
   const handleBlur = () => {
@@ -35,7 +40,7 @@ const MainLayout = () => {
         {filteredProducts.length > 0 && (
           <FilteredProducts filteredProducts={filteredProducts} />
         )}
-        {!filteredProducts.length && (
+        {filteredProducts.length <= 0 && (
           <>
             <Outlet />
           </>

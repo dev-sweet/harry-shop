@@ -5,3 +5,28 @@
 .section-container {
   padding: 0px 80px;
 }
+.single-product img {
+  transition: ease-in-out 0.3s;
+}
+.single-product:hover img {
+  scale: 1.1;
+}
+.iphone-cover {
+  background-image: url("./assets/bannerimg.jpg");
+  background-size: cover;
+  /* background-position: 200%; */
+  background-repeat: no-repeat;
+  background-clip: content-box;
+}
+
+.subscribe {
+  background-image: url("./assets/cta-bg-1.3e8b3216.jpg");
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+@media only screen and (max-width: 600px) {
+  .section-container {
+    padding: 0px 30px;
+  }
+}
