@@ -1,30 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import logo from "../../assets/logo-black.de19b08e.svg";
 import { ToastContainer, toast } from "react-toastify";
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 const Navbar = ({ handleSearch, handleBlur, searchText }) => {
   const { userInfo, logOut } = useContext(AuthContext);
+  const { pathname } = useLocation();
 
-  const lists = (
-    <>
-      <li>
-        <Link to="/">Home</Link>
-      </li>
-      <li>
-        <Link to="/products">All Products</Link>
-      </li>
-      <li>
-        <Link to="/about">About</Link>
-      </li>
-      <li>
-        <Link to="/contacts">Contacts</Link>
-      </li>
-      <li>
-        <Link to="/dashboard">Dashboard</Link>
-      </li>
-    </>
-  );
+  const navItems = [
+    { id: "nav-item1", menu: "Home", path: "/" },
+    { id: "nav-item2", menu: "Shop", path: "/products" },
+    { id: "nav-item3", menu: "About", path: "/about" },
+    { id: "nav-item4", menu: "Contacts", path: "/contacts" },
+    { id: "nav-item5", menu: "Dashboard", path: "/dashboard" },
+  ];
 
   const handleLogout = () => {
     logOut().then(() => {
@@ -34,7 +23,7 @@ const Navbar = ({ handleSearch, handleBlur, searchText }) => {
 
   return (
     <>
-      <div className="section-container bg-base-100 shadow-sm">
+      <div className="fixed top-0 left-0 right-0 section-container bg-base-100 shadow-sm">
         <div className="navbar m-0 p-0">
           <div className="flex-1">
             <div className="dropdown">
@@ -62,14 +51,29 @@ const Navbar = ({ handleSearch, handleBlur, searchText }) => {
                 tabIndex={0}
                 className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
               >
-                {lists}
+                {navItems.map((item) => (
+                  <li key={item.id + "1"}>
+                    <Link to={item.path}>{item.menu}</Link>
+                  </li>
+                ))}
               </ul>
             </div>
             <a className="bg-gray-10">
               <img src={logo} className="w-3/4" alt="" />
             </a>
             <div className="hidden lg:flex">
-              <ul className="menu menu-horizontal px-1">{lists}</ul>
+              <ul className="menu menu-horizontal px-1">
+                {navItems.map((item) => (
+                  <li key={item.id}>
+                    <Link
+                      className={pathname === item.path && "active"}
+                      to={item.path}
+                    >
+                      {item.menu}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 

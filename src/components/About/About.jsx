@@ -1,8 +1,16 @@
+import Subscribe from "../Home/Subscribe/Subscribe";
+import AboutBanner from "./AboutBanner";
+import History from "./History";
+import Services from "./Services";
+
 const About = () => {
   return (
-    <div className="flex h-screen items-center justify-center">
-      <h1 className="text-center text-4xl">About Page Comming</h1>
-    </div>
+    <>
+      <AboutBanner />
+      <History />
+      <Services />
+      <Subscribe />
+    </>
   );
 };
 

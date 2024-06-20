@@ -2,29 +2,84 @@
 @tailwind components;
 @tailwind utilities;
 
+/* section container used to multiple files */
 .section-container {
   padding: 0px 80px;
 }
+
+/* single product img */
 .single-product img {
+  z-index: 0;
   transition: ease-in-out 0.3s;
 }
 .single-product:hover img {
-  scale: 1.1;
+  /* scale: 1.01; */
 }
+
+/* iphone cover homepage */
 .iphone-cover {
   background-image: url("./assets/bannerimg.jpg");
   background-size: cover;
-  /* background-position: 200%; */
   background-repeat: no-repeat;
   background-clip: content-box;
 }
 
+/* subscribe component bg */
 .subscribe {
   background-image: url("./assets/cta-bg-1.3e8b3216.jpg");
   background-size: auto;
   background-repeat: no-repeat;
   background-position: center;
 }
+
+/* about page's stylings*/
+.about {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./assets/about-breadcrumb.5a10c796.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* services bg about page */
+.services-bg {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./assets/faq-img.fe5fd98a.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* bublle-button about page */
+.bubble-button {
+  position: relative;
+  overflow: hidden;
+}
+.bubble-button::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transition: transform 0.6s;
+  pointer-events: none;
+}
+.bubble-button:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.contact-banner-bg {
+  background-image: url("./assets/contact-bg.c289349f.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* responsive design */
 @media only screen and (max-width: 600px) {
   .section-container {
     padding: 0px 30px;

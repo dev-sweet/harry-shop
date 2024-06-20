@@ -29,7 +29,7 @@ const Advantages = () => {
       <div className="grid grid-cols-4 gap-5 py-16">
         {data.map((item) => (
           <div
-            key={item.name}
+            key={item.title}
             className="col flex gap-3 items-center justify-between"
           >
             <div className="rounded-full border border-1 border-gray-300 p-3 text-2xl">

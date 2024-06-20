@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import SingleProduct from "../SingleProduct/SingleProduct";
 import { Link } from "react-router-dom";
+import { FaLongArrowAltRight } from "react-icons/fa";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -24,6 +25,7 @@ const Products = () => {
             to="/products"
           >
             View All Products
+            <FaLongArrowAltRight />
           </Link>
         </div>
       </div>
